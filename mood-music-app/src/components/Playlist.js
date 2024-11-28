@@ -1,33 +1,38 @@
-import React, { useState } from 'react';
-import MusicPlayer from './MusicPlayer/MusicPlayer';
+import React from 'react';
+import './Playlist.css'; // Import the CSS file
 
 const Playlist = ({ songs }) => {
-  const [currentSong, setCurrentSong] = useState(null);
-
   if (!songs || songs.length === 0) {
-    return <p className="text-gray-500">No songs available. Select a mood to get started!</p>;
+    return (
+      <p className="text-gray-500">
+        No songs available. Select a mood to get started!
+      </p>
+    );
   }
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Your Playlist</h2>
-      <ul>
+    <div className="playlist-container">
+      <h2 className="playlist-title">Your Playlist</h2>
+      <div className="song-card-grid">
         {songs.map((song, index) => (
-          <li
-            key={index}
-            className="mb-4 p-2 border-b pb-2 cursor-pointer hover:bg-gray-100 rounded"
-            onClick={() => setCurrentSong(song)}
-          >
-            <p><strong>{song.title}</strong></p>
-            <p className="text-sm text-gray-600">by {song.artist}</p>
-          </li>
+          <div key={index} className="song-card">
+            {/* Album Art */}
+            <img
+              src={song.albumArt || '/default-album-art.png'} // Use default image if albumArt is missing
+              alt={`${song.title} Album Art`}
+              className="album-art"
+            />
+            {/* Song Info */}
+            <div className="song-info">
+              <h3 className="song-title">{song.title}</h3>
+              <p className="song-artist">by {song.artist}</p>
+              <p className="album-info">{song.albumInfo || 'No album info available'}</p>
+              {/* Audio Player */}
+              <audio controls src={song.url} className="audio-player"></audio>
+            </div>
+          </div>
         ))}
-      </ul>
-      {currentSong && (
-        <div className="mt-6">
-          <MusicPlayer song={currentSong} />
-        </div>
-      )}
+      </div>
     </div>
   );
 };

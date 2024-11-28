@@ -1,0 +1,159 @@
+/* General Styles */
+.mood-emoji-game {
+    text-align: center;
+    padding: 2rem;
+    background-color: #1c1f26; /* Dark gray background */
+    color: #ffffff; /* Light text */
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .game-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4fd1c5; /* Vibrant teal for the title */
+    margin-bottom: 1rem;
+  }
+  
+  .timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e53e3e; /* Bright red for urgency */
+    margin-bottom: 1rem;
+  }
+  
+  /* Buttons */
+  .start-button {
+    background: linear-gradient(90deg, #4299e1, #38bdf8); /* Gradient background */
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .start-button:hover {
+    background: linear-gradient(90deg, #38bdf8, #4299e1); /* Reverse gradient */
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Game Board */
+  .game-board {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .emojis, .moods {
+    flex: 1;
+    margin: 0 1rem;
+  }
+  
+  .emojis ul, .moods ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .emojis li, .moods li {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background-color: #334155; /* Darker blue-gray for list items */
+    color: #ffffff; /* Light text */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: grab;
+    transition: all 0.3s ease;
+  }
+  
+  /* Highlight Active Drop Area */
+  .emojis li.highlight {
+    background-color: #68d391; /* Bright green for active drop target */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  /* Hover Effect for Dragging */
+  .moods li:hover {
+    background-color: #475569; /* Slightly lighter shade on hover */
+    transform: translateY(-4px); /* Lift effect */
+  }
+  
+  /* Dragging State */
+  .moods li:active {
+    cursor: grabbing;
+    opacity: 0.8;
+  }
+  
+  /* Error Message */
+  .error-message {
+    color: #f56565; /* Bright red for errors */
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  /* Score */
+  .score {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #48bb78; /* Bright green for score */
+    margin-top: 1rem;
+  }
+  
+  /* Celebration Screen */
+  .winner-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background-color: #1c1f26; /* Dark background */
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .congrats-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4fd1c5; /* Teal color */
+    text-shadow: 0 0 10px #38bdf8, 0 0 20px #4fd1c5; /* Glowing text effect */
+    margin-bottom: 1.5rem;
+    animation: glow 2s infinite;
+  }
+  
+  .try-again-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e53e3e; /* Bright red for "Try Again" */
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes glow {
+    0%, 100% {
+      text-shadow: 0 0 10px #38bdf8, 0 0 20px #4fd1c5;
+    }
+    50% {
+      text-shadow: 0 0 20px #38bdf8, 0 0 40px #4fd1c5;
+    }
+  }
+  

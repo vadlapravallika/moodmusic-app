@@ -12,7 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   background-color: #050505; /* Matches your app background */
-  color: #ffffff; /* Text color for dark background */
+  color: #0a0a0a; /* Text color for dark background */
 }
 
 code {
@@ -113,4 +113,5 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 15px;
   text-align: center;
   border-top: 1px solid #333333;
+  position: fixed;
 }

@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SurpriseMe = ({ onSurpriseMood }) => {
   const moods = ['Happy', 'Sad', 'Relaxed', 'Energetic'];
   const [selectedMood, setSelectedMood] = useState('');
+  const navigate = useNavigate();
 
   const handleSurprise = () => {
     const randomMood = moods[Math.floor(Math.random() * moods.length)];
     setSelectedMood(randomMood);
     onSurpriseMood(randomMood);
+    navigate('/playlist'); // Navigate to the Playlist page
   };
 
   return (
@@ -20,7 +22,9 @@ const SurpriseMe = ({ onSurpriseMood }) => {
         Surprise Me
       </button>
       {selectedMood && (
-        <p className="text-lg mt-2">Your mood is: <strong>{selectedMood}</strong></p>
+        <p className="text-lg mt-2">
+          Your mood is: <strong>{selectedMood}</strong>
+        </p>
       )}
     </div>
   );
