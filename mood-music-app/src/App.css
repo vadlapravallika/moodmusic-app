@@ -69,14 +69,72 @@
   background-color: #e64a19;
 }
 
+/* Grid System */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 /* Media Queries */
+
+/* Small Devices (max-width: 768px) */
 @media (max-width: 768px) {
   .App-header h1 {
     font-size: 2rem;
   }
 
+  .App-header p {
+    font-size: 1rem;
+  }
+
   .App-main {
     padding: 10px;
+  }
+
+  .App-footer {
+    font-size: 0.8rem;
+  }
+
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Medium Devices (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .App-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .App-main {
+    padding: 15px;
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large Devices (above 1024px) */
+@media (min-width: 1024px) {
+  .App-main {
+    padding: 20px 40px;
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
