@@ -18,11 +18,6 @@ const AudioTherapy = () => {
       video: '/videos/forest.mp4',
       audio: '/sounds/forest.mp3',
     },
-    {
-      name: 'White Noise',
-      video: '/videos/white-noise.mp4',
-      audio: '/sounds/white-noise.mp3',
-    },
   ];
 
   const [currentSound, setCurrentSound] = useState('');

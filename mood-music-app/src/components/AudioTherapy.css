@@ -1,80 +1,107 @@
 .audio-therapy {
-    padding: 2rem;
-    background-color: #f9fafb; /* Light background */
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #edf2f7, #e2e8f0); /* Subtle gradient */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 900px;
+  margin: auto; /* Center the container */
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #1a202c; /* Slightly darker gray for emphasis */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #4a5568;
+  letter-spacing: 0.5px; /* Slightly spaced letters for readability */
+}
+
+.soundscapes {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap; /* Wrap the cards for responsiveness */
+}
+
+.soundscape-card {
+  background: linear-gradient(145deg, #ffffff, #f7fafc); /* Light 3D effect */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.8); /* Depth effect */
+  padding: 1rem;
+  text-align: center;
+  max-width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.soundscape-card:hover {
+  transform: scale(1.07); /* Slightly bigger zoom on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+.soundscape-video {
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Video shadow */
+}
+
+.soundscape-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2b6cb0; /* Calming blue */
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.soundscape-name:hover {
+  color: #2c5282; /* Darker blue on hover */
+}
+
+.play-button {
+  background: linear-gradient(90deg, #48bb78, #38a169); /* Modern gradient */
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Button shadow */
+}
+
+.play-button:hover {
+  background: linear-gradient(90deg, #38a169, #2f855a); /* Darker gradient on hover */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+.play-button:active {
+  transform: scale(0.98); /* Slight press effect */
+}
+
+.current-sound {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2d3748;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #2d3748; /* Dark gray text */
+  to {
+    opacity: 1;
   }
-  
-  .subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: #4a5568; /* Medium gray */
-  }
-  
-  .soundscapes {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap; /* Wrap the cards for responsiveness */
-  }
-  
-  .soundscape-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    text-align: center;
-    max-width: 200px;
-    transition: transform 0.3s ease;
-    overflow: hidden; /* Ensure video fits within the card */
-  }
-  
-  .soundscape-card:hover {
-    transform: scale(1.05); /* Subtle zoom on hover */
-  }
-  
-  .soundscape-video {
-    width: 100%;
-    height: 120px;
-    border-radius: 8px;
-    object-fit: cover; /* Ensure the video fits properly */
-    margin-bottom: 0.5rem;
-  }
-  
-  .soundscape-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #2c5282; /* Blue text */
-    margin-bottom: 0.5rem;
-  }
-  
-  .play-button {
-    background-color: #48bb78; /* Green button */
-    color: #ffffff;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .play-button:hover {
-    background-color: #38a169; /* Darker green on hover */
-  }
-  
-  .current-sound {
-    margin-top: 2rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #2d3748;
-  }
-  
+}

@@ -1,11 +1,34 @@
 .game-selection {
   text-align: center;
   padding: 2rem;
-  background-color: #1c1f26;
-  color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  background: radial-gradient(circle, rgba(223, 38, 38, 1) 16%, rgba(174, 31, 31, 1) 46%, rgba(14, 82, 204, 1) 100%);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
   font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.game-selection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(0deg);
+  animation: rotateBackground 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotateBackground {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .title {
@@ -13,27 +36,37 @@
   font-weight: bold;
   color: #4fd1c5;
   margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .games {
   display: flex;
   justify-content: center;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .game-card {
-  background-color: #334155;
+  background: linear-gradient(145deg, #2a3b4c, #3e5168);
   padding: 1.5rem;
   border-radius: 12px;
   width: 250px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 4px 8px rgba(255, 255, 255, 0.05);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 5px 10px rgba(255, 255, 255, 0.1);
 }
 
 .game-card h3 {
   font-size: 1.5rem;
   color: #38bdf8;
   margin-bottom: 1rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .game-card p {
@@ -43,16 +76,23 @@
 }
 
 .play-button {
-  background: linear-gradient(90deg, #4299e1, #38bdf8);
+  background: linear-gradient(135deg, #1e3a8a, #0d9488);
   color: #ffffff;
   padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+  font-weight: bold;
 }
 
 .play-button:hover {
   background: linear-gradient(90deg, #38bdf8, #4299e1);
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.play-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }

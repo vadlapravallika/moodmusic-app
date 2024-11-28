@@ -17,7 +17,8 @@ const Sidebar = () => {
     <div className="sidebar-container">
       {/* App Logo */}
       <div className="logo-container">
-  <img src="/logo.png" alt="App Logo" className="logo" /></div>
+        <img src="/logo.png" alt="App Logo" className="logo" />
+      </div>
       <h2 className="sidebar-title">Mood Music</h2>
       <nav className="sidebar-menu">
         <ul>

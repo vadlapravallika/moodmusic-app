@@ -8,6 +8,7 @@ const MoodEmojiGame = () => {
   const [error, setError] = useState('');
   const [timeLeft, setTimeLeft] = useState(60); // Timer in seconds
   const [gameOver, setGameOver] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false); // New state for initial game start
 
   const moods = [
     { mood: 'Happy', emoji: '😊' },
@@ -20,9 +21,10 @@ const MoodEmojiGame = () => {
   const shuffleArray = (array) => [...array].sort(() => Math.random() - 0.5);
 
   const startGame = () => {
+    setHasStarted(true);
     setError('');
     setScore(0);
-    setTimeLeft(60); // Reset timer
+    setTimeLeft(30);
     setGameOver(false);
     setShuffledEmojis(shuffleArray(moods));
     setShuffledMoods(shuffleArray(moods));
@@ -40,20 +42,17 @@ const MoodEmojiGame = () => {
       setShuffledEmojis(shuffledEmojis.filter((item) => item.mood !== emoji.mood));
       setShuffledMoods(shuffledMoods.filter((item) => item.mood !== emoji.mood));
     } else {
-      setError(`Incorrect! The correct mood for ${emoji.emoji} is "${emoji.mood}".`);
+      setError(`Incorrect!`);
     }
   };
 
-  const handleDragOver = (e) => {
-    e.preventDefault();
-  };
+  const handleDragOver = (e) => e.preventDefault();
 
   useEffect(() => {
-    if (shuffledEmojis.length === 0 && shuffledMoods.length === 0 && !gameOver) {
+    if (shuffledEmojis.length === 0 && !gameOver && hasStarted) {
       setGameOver(true);
-      setError('');
     }
-  }, [shuffledEmojis, shuffledMoods, gameOver]);
+  }, [shuffledEmojis, hasStarted, gameOver]);
 
   useEffect(() => {
     if (timeLeft > 0 && !gameOver) {
@@ -66,24 +65,23 @@ const MoodEmojiGame = () => {
 
   return (
     <div className="mood-emoji-game">
-      {!gameOver ? (
-        <>
-          <h2 className="game-title">Mood Emoji Matching Game</h2>
+      {!hasStarted ? (
+        <div className="game-start-page">
+          <h2>Welcome to the Mood Emoji Matching Game!</h2>
           <button onClick={startGame} className="start-button">
             Start Game
           </button>
+        </div>
+      ) : !gameOver ? (
+        <>
+          <h2 className="game-title">Mood Emoji Matching Game</h2>
           <div className="timer">Time Left: {timeLeft} seconds</div>
           <div className="game-board">
             <div className="emojis">
               <h3>Emojis</h3>
               <ul>
                 {shuffledEmojis.map((item, index) => (
-                  <li
-                    key={index}
-                    className="emoji"
-                    onDrop={(e) => handleDrop(e, item)}
-                    onDragOver={handleDragOver}
-                  >
+                  <li key={index} onDrop={(e) => handleDrop(e, item)} onDragOver={handleDragOver}>
                     {item.emoji}
                   </li>
                 ))}
@@ -93,12 +91,7 @@ const MoodEmojiGame = () => {
               <h3>Moods</h3>
               <ul>
                 {shuffledMoods.map((item, index) => (
-                  <li
-                    key={index}
-                    className="mood"
-                    draggable
-                    onDragStart={(e) => handleDragStart(e, item.mood)}
-                  >
+                  <li key={index} draggable onDragStart={(e) => handleDragStart(e, item.mood)}>
                     {item.mood}
                   </li>
                 ))}
@@ -109,22 +102,19 @@ const MoodEmojiGame = () => {
           <p className="score">Score: {score}</p>
         </>
       ) : (
-        <div className="winner-page">
-          {shuffledEmojis.length === 0 && shuffledMoods.length === 0 ? (
-            <div className="celebration">
-              <h2 className="congrats-text">🎉 Congratulations! You Won! 🎉</h2>
-              <button onClick={startGame} className="start-button">
-                Play Again
-              </button>
+        <div className="game-over-container">
+          {shuffledEmojis.length === 0 ? (
+            <div className="winner-page">
+              <h2>🎉 Congratulations! You Won! 🎉</h2>
             </div>
           ) : (
-            <div className="game-over">
-              <h2 className="try-again-text">Game Over! Try Again!</h2>
-              <button onClick={startGame} className="start-button">
-                Try Again
-              </button>
+            <div className="loser-page">
+              <h2>Game Over! Try Again!</h2>
             </div>
           )}
+          <button onClick={startGame} className="start-button">
+            Play Again
+          </button>
         </div>
       )}
     </div>
