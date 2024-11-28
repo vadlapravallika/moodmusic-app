@@ -1,35 +1,36 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './Sidebar.css'; 
-
+import './Sidebar.css';
+import { FaHome, FaGamepad, FaListUl, FaQuoteRight, FaHeadphones, FaHeartbeat } from 'react-icons/fa';
 
 const Sidebar = () => {
   const menuItems = [
-    { path: '/', name: 'Home' },
-    { path: '/games', name: 'Games' },
-    { path: '/playlist', name: 'Playlist' },
-    { path: '/mood-quotes', name: 'Mood Quotes' },
-    { path: '/audio-therapy', name: 'Audio Therapy' },
-    { path: '/supriseme', name: 'Suprise Me' },
-    { path: '/mood-tracker', name: 'MoodTracker'},
+    { path: '/', name: 'Home', icon: <FaHome /> },
+    { path: '/games', name: 'Games', icon: <FaGamepad /> },
+    { path: '/playlist', name: 'Playlist', icon: <FaListUl /> },
+    { path: '/mood-quotes', name: 'Mood Quotes', icon: <FaQuoteRight /> },
+    { path: '/audio-therapy', name: 'Audio Therapy', icon: <FaHeadphones /> },
+    { path: '/mood-tracker', name: 'Mood Tracker', icon: <FaHeartbeat /> },
   ];
 
   return (
-    <div className="w-64 bg-gray-800 text-white h-screen fixed">
-      <h2 className="text-xl font-bold p-4 border-b border-gray-700">Mood Music</h2>
-      <nav className="mt-4">
-        <ul className="space-y-2">
+    <div className="sidebar-container">
+      {/* App Logo */}
+      <div className="logo-container">
+  <img src="/logo.png" alt="App Logo" className="logo" /></div>
+      <h2 className="sidebar-title">Mood Music</h2>
+      <nav className="sidebar-menu">
+        <ul>
           {menuItems.map((item) => (
-            <li key={item.path}>
+            <li key={item.path} className="menu-item">
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `block px-4 py-2 hover:bg-gray-700 ${
-                    isActive ? 'bg-gray-700' : ''
-                  }`
+                  `menu-link ${isActive ? 'active' : ''}`
                 }
               >
-                {item.name}
+                <span className="icon">{item.icon}</span>
+                <span className="name">{item.name}</span>
               </NavLink>
             </li>
           ))}

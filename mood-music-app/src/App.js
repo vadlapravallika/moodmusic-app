@@ -8,7 +8,6 @@ import MoodSelector from './components/MoodSelector';
 import EmotionVisualizer from './components/EmotionVisualizer';
 import Playlist from './components/Playlist';
 import CollabPlaylist from './components/CollabPlaylist';
-import SurpriseMe from './components/SurpriseMe';
 import MoodEmojiGame from './components/MoodEmojiGame';
 import MoodQuotes from './components/MoodQuotes';
 import MoodTracker from './components/MoodTracker';
@@ -55,11 +54,8 @@ const App = () => {
               />
               <Route path="/playlist" element={<Playlist songs={songs} />} />
               <Route path="/collab-playlist" element={<CollabPlaylist />} />
-              <Route
-  path="/surprise-me"
-  element={<SurpriseMe onSurpriseMood={handleMoodSelect} />}
-/>
-<Route path="/games" element={<GameSelection />} />
+
+            <Route path="/games" element={<GameSelection />} />
             <Route path="/emoji-mood-game" element={<MoodEmojiGame />} />
             <Route path="/whack-a-mood" element={<WhackAMood />} />
 

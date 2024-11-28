@@ -1,59 +1,58 @@
 .game-selection {
-    text-align: center;
-    padding: 2rem;
-    background-color: #1c1f26;
-    color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #4fd1c5;
-    margin-bottom: 2rem;
-  }
-  
-  .games {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-  }
-  
-  .game-card {
-    background-color: #334155;
-    padding: 1.5rem;
-    border-radius: 12px;
-    width: 250px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
-  
-  .game-card h3 {
-    font-size: 1.5rem;
-    color: #38bdf8;
-    margin-bottom: 1rem;
-  }
-  
-  .game-card p {
-    font-size: 1rem;
-    color: #a1a1aa;
-    margin-bottom: 1.5rem;
-  }
-  
-  .play-button {
-    background: linear-gradient(90deg, #4299e1, #38bdf8);
-    color: #ffffff;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .play-button:hover {
-    background: linear-gradient(90deg, #38bdf8, #4299e1);
-    transform: scale(1.05);
-  }
-  
+  text-align: center;
+  padding: 2rem;
+  background-color: #1c1f26;
+  color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  font-family: 'Arial', sans-serif;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4fd1c5;
+  margin-bottom: 2rem;
+}
+
+.games {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.game-card {
+  background-color: #334155;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.game-card h3 {
+  font-size: 1.5rem;
+  color: #38bdf8;
+  margin-bottom: 1rem;
+}
+
+.game-card p {
+  font-size: 1rem;
+  color: #a1a1aa;
+  margin-bottom: 1.5rem;
+}
+
+.play-button {
+  background: linear-gradient(90deg, #4299e1, #38bdf8);
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  background: linear-gradient(90deg, #38bdf8, #4299e1);
+  transform: scale(1.05);
+}

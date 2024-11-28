@@ -1,0 +1,105 @@
+/* Landing Page Styles */
+.landing-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #ffa26c, #ffcd9e, #ffd4b3, #ffe4c7);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    padding: 2rem;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Gradient Animation */
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Content Section */
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1; /* Ensures it's above the background */
+  }
+  
+  .title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(2, 2, 2, 0.5);
+  }
+ 
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #4f4f4f; /* Soft dark gray for readability */
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3); /* Soft dark shadow for contrast */
+  }
+  
+  .get-started-button {
+    background-color: #4fd1c5;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  
+  .get-started-button:hover {
+    background-color: #38b2ac;
+    transform: scale(1.05);
+  }
+  
+  /* Music Image Section */
+  .image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .music-image {
+    max-width: 80%;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+  }
+  
+  /* Float Animation for Image */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @media (max-width: 768px) {
+    .landing-page {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  
+    .content, .image-container {
+      flex: unset;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .music-image {
+      max-width: 90%;
+      margin-top: 1.5rem;
+    }
+  }
+    
