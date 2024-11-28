@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+
 
 const SurpriseMe = ({ onSurpriseMood }) => {
   const moods = ['Happy', 'Sad', 'Relaxed', 'Energetic'];
