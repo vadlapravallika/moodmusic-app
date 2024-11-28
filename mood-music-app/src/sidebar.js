@@ -6,11 +6,12 @@ import './Sidebar.css';
 const Sidebar = () => {
   const menuItems = [
     { path: '/', name: 'Home' },
-    { path: '/moodemojigame', name: 'Mood Emoji Game' },
+    { path: '/games', name: 'Games' },
     { path: '/playlist', name: 'Playlist' },
     { path: '/mood-quotes', name: 'Mood Quotes' },
     { path: '/audio-therapy', name: 'Audio Therapy' },
     { path: '/supriseme', name: 'Suprise Me' },
+    { path: '/mood-tracker', name: 'MoodTracker'},
   ];
 
   return (

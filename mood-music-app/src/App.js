@@ -15,6 +15,8 @@ import MoodTracker from './components/MoodTracker';
 import AudioTherapy from './components/AudioTherapy';
 import Search from './components/Search';
 import Settings from './components/Settings';
+import GameSelection from './components/GameSelection';
+import WhackAMood from './components/WhackAMood';
 
 
 const App = () => {
@@ -57,7 +59,9 @@ const App = () => {
   path="/surprise-me"
   element={<SurpriseMe onSurpriseMood={handleMoodSelect} />}
 />
-              <Route path="/moodemojigame" element={<MoodEmojiGame />} />
+<Route path="/games" element={<GameSelection />} />
+            <Route path="/emoji-mood-game" element={<MoodEmojiGame />} />
+            <Route path="/whack-a-mood" element={<WhackAMood />} />
 
               <Route path="/mood-quotes" element={<MoodQuotes />} />
               <Route path="/mood-tracker" element={<MoodTracker />} />
