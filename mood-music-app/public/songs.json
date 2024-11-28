@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "title": "Song A",
+      "artist": "Artist 1",
+      "mood": "Happy",
+      "url": "/songs/songA.mp3"
+    },
+    {
+      "id": 2,
+      "title": "Song B",
+      "artist": "Artist 2",
+      "mood": "Sad",
+      "url": "/songs/songB.mp3"
+    },
+    {
+      "id": 3,
+      "title": "Song C",
+      "artist": "Artist 3",
+      "mood": "Relaxed",
+      "url": "/songs/songC.mp3"
+    }
+  ]
+  

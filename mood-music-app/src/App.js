@@ -18,15 +18,20 @@ import Settings from './components/Settings';
 const App = () => {
   const [currentMood, setCurrentMood] = React.useState('');
   const [songs, setSongs] = React.useState([]);
+  
 
-  const handleMoodSelect = (mood) => {
+  // Fetch songs based on mood
+  const handleMoodSelect = async (mood) => {
     setCurrentMood(mood);
-    // Simulate fetching a playlist based on mood
-    setSongs([
-      { title: `${mood} Song 1`, artist: 'Artist 1' },
-      { title: `${mood} Song 2`, artist: 'Artist 2' },
-      { title: `${mood} Song 3`, artist: 'Artist 3' },
-    ]);
+    try {
+      const response = await fetch('/songs.json'); // Ensure songs.json is in the public folder
+      const data = await response.json();
+      console.log(data);
+      const filteredSongs = data.filter((song) => song.mood === mood); // Filter songs by moo
+      setSongs(filteredSongs);
+    } catch (error) {
+      console.error('Error fetching songs:', error);
+    }
   };
 
   return (
@@ -36,16 +41,32 @@ const App = () => {
         <main className="flex-grow container mx-auto p-4">
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/mood-selector" element={<MoodSelector onMoodSelect={handleMoodSelect} />} />
-            <Route path="/emotion-visualizer" element={<EmotionVisualizer mood={currentMood} />} />
+            <Route
+              path="/mood-selector"
+              element={<MoodSelector onMoodSelect={handleMoodSelect} />}
+            />
+            <Route
+              path="/emotion-visualizer"
+              element={<EmotionVisualizer mood={currentMood} />}
+            />
             <Route path="/playlist" element={<Playlist songs={songs} />} />
             <Route path="/collab-playlist" element={<CollabPlaylist />} />
-            <Route path="/surprise-me" element={<SurpriseMe onSurpriseMood={handleMoodSelect} />} />
+            <Route
+              path="/surprise-me"
+              element={<SurpriseMe onSurpriseMood={handleMoodSelect} />}
+            />
             <Route path="/mood-game" element={<MoodGame />} />
             <Route path="/mood-quotes" element={<MoodQuotes />} />
             <Route path="/mood-tracker" element={<MoodTracker />} />
             <Route path="/audio-therapy" element={<AudioTherapy />} />
-            <Route path="/search" element={<Search onSearch={(query) => alert(`Searching for ${query}`)} />} />
+            <Route
+              path="/search"
+              element={
+                <Search
+                  onSearch={(query) => alert(`Searching for ${query}`)}
+                />
+              }
+            />
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </main>
