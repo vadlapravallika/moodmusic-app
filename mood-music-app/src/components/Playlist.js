@@ -1,14 +1,20 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './Playlist.css'; // Import the CSS file
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Playlist.css';
+import { MusicPlayerContext } from '../MusicPlayerContext'; // Import the context
 
 const Playlist = ({ songs }) => {
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate();
+  const { setCurrentSong } = useContext(MusicPlayerContext); // Use context
+
+  const playInFooter = (song) => {
+    setCurrentSong(song); // Set the current song in the global state
+  };
 
   return (
     <div className="playlist-container">
       <button
-        onClick={() => navigate('/')} // Navigate back to the mood selection page
+        onClick={() => navigate('/')}
         className="back-button bg-indigo-500 text-white px-4 py-2 rounded mb-4"
       >
         Back to Mood Selection
@@ -23,22 +29,22 @@ const Playlist = ({ songs }) => {
           <h2 className="playlist-title">Your Playlist</h2>
           <div className="song-card-grid">
             {songs.map((song, index) => (
-              <div key={index} className="song-card">
-                {/* Album Art */}
+              <div
+                key={index}
+                className="song-card"
+                onClick={() => playInFooter(song)} // Play the song in the footer
+              >
                 <img
-                  src={song.albumArt || '/default-album-art.png'} // Use default image if albumArt is missing
+                  src={song.albumArt || '/default-album-art.png'}
                   alt={`${song.title} Album Art`}
                   className="album-art"
                 />
-                {/* Song Info */}
                 <div className="song-info">
                   <h3 className="song-title">{song.title}</h3>
                   <p className="song-artist">by {song.artist}</p>
                   <p className="album-info">
                     {song.albumInfo || 'No album info available'}
                   </p>
-                  {/* Audio Player */}
-                  <audio controls src={song.url} className="audio-player"></audio>
                 </div>
               </div>
             ))}

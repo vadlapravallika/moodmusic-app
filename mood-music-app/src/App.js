@@ -16,7 +16,7 @@ import Search from './components/Search';
 import Settings from './components/Settings';
 import GameSelection from './components/GameSelection';
 import WhackAMood from './components/WhackAMood';
-
+import { MusicPlayerProvider } from './MusicPlayerContext'; // Correct import
 
 const App = () => {
   const [currentMood, setCurrentMood] = React.useState('');
@@ -33,50 +33,51 @@ const App = () => {
       console.error('Error fetching songs:', error);
     }
   };
-  
 
   return (
-    <Router>
-      <div className="flex">
-        <Sidebar /> {/* Sidebar added here */}
-        <div className="flex flex-col flex-grow ml-64">
-          <Navbar />
-          <main className="flex-grow container mx-auto p-4">
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route
-                path="/mood-selector"
-                element={<MoodSelector onMoodSelect={handleMoodSelect} />}
-              />
-              <Route
-                path="/emotion-visualizer"
-                element={<EmotionVisualizer mood={currentMood} />}
-              />
-              <Route path="/playlist" element={<Playlist songs={songs} />} />
-              <Route path="/collab-playlist" element={<CollabPlaylist />} />
+    <MusicPlayerProvider> {/* Wrap the app with the provider */}
+      <Router>
+        <div className="flex">
+          <Sidebar />
+          <div className="flex flex-col flex-grow ml-64">
+            <Navbar />
+            <main className="flex-grow container mx-auto p-4">
+              <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route
+                  path="/mood-selector"
+                  element={<MoodSelector onMoodSelect={handleMoodSelect} />}
+                />
+                <Route
+                  path="/emotion-visualizer"
+                  element={<EmotionVisualizer mood={currentMood} />}
+                />
+                <Route path="/playlist" element={<Playlist songs={songs} />} />
+                <Route path="/collab-playlist" element={<CollabPlaylist />} />
 
-            <Route path="/games" element={<GameSelection />} />
-            <Route path="/emoji-mood-game" element={<MoodEmojiGame />} />
-            <Route path="/whack-a-mood" element={<WhackAMood />} />
+                <Route path="/games" element={<GameSelection />} />
+                <Route path="/emoji-mood-game" element={<MoodEmojiGame />} />
+                <Route path="/whack-a-mood" element={<WhackAMood />} />
 
-              <Route path="/mood-quotes" element={<MoodQuotes />} />
-              <Route path="/mood-tracker" element={<MoodTracker />} />
-              <Route path="/audio-therapy" element={<AudioTherapy />} />
-              <Route
-                path="/search"
-                element={
-                  <Search
-                    onSearch={(query) => alert(`Searching for ${query}`)}
-                  />
-                }
-              />
-              <Route path="/settings" element={<Settings />} />
-            </Routes>
-          </main>
-          <Footer />
+                <Route path="/mood-quotes" element={<MoodQuotes />} />
+                <Route path="/mood-tracker" element={<MoodTracker />} />
+                <Route path="/audio-therapy" element={<AudioTherapy />} />
+                <Route
+                  path="/search"
+                  element={
+                    <Search
+                      onSearch={(query) => alert(`Searching for ${query}`)}
+                    />
+                  }
+                />
+                <Route path="/settings" element={<Settings />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </MusicPlayerProvider>
   );
 };
 

@@ -1,107 +1,35 @@
-.audio-therapy {
-  padding: 2rem;
-  background: linear-gradient(135deg, #edf2f7, #e2e8f0); /* Subtle gradient */
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 900px;
-  margin: auto; /* Center the container */
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #1a202c; /* Slightly darker gray for emphasis */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: #4a5568;
-  letter-spacing: 0.5px; /* Slightly spaced letters for readability */
-}
-
-.soundscapes {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap; /* Wrap the cards for responsiveness */
-}
-
+/* Tailwind Customization (Add this in your Tailwind CSS file or use inline classes) */
 .soundscape-card {
-  background: linear-gradient(145deg, #ffffff, #f7fafc); /* Light 3D effect */
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.8); /* Depth effect */
+  background-image: url('/images/therapy-card-bg.jpg'); /* Path to your background image */
+  background-size: cover;
+  background-position: center;
+  color: white;
   padding: 1rem;
-  text-align: center;
-  max-width: 220px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .soundscape-card:hover {
-  transform: scale(1.07); /* Slightly bigger zoom on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.soundscape-video {
-  width: 100%;
-  height: 120px;
-  border-radius: 8px;
-  object-fit: cover;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Video shadow */
-}
-
-.soundscape-name {
-  font-size: 1.2rem;
+.soundscape-card h3 {
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #2b6cb0; /* Calming blue */
   margin-bottom: 0.5rem;
-  transition: color 0.3s ease;
 }
 
-.soundscape-name:hover {
-  color: #2c5282; /* Darker blue on hover */
-}
-
-.play-button {
-  background: linear-gradient(90deg, #48bb78, #38a169); /* Modern gradient */
-  color: #ffffff;
-  font-size: 1rem;
+.soundscape-card button {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000000;
   padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Button shadow */
-}
-
-.play-button:hover {
-  background: linear-gradient(90deg, #38a169, #2f855a); /* Darker gradient on hover */
-  transform: translateY(-2px); /* Lift effect */
-}
-
-.play-button:active {
-  transform: scale(0.98); /* Slight press effect */
-}
-
-.current-sound {
-  margin-top: 2rem;
-  font-size: 1.2rem;
+  border-radius: 0.5rem;
   font-weight: bold;
-  color: #2d3748;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
-  animation: fadeIn 0.5s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.soundscape-card button:hover {
+  background-color: rgba(255, 255, 255, 1);
 }

@@ -1,0 +1,202 @@
+/* Footer Container */
+.footer-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #1e1e2f; /* Deep purple */
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    padding: 0 20px;
+  }
+  
+  /* Footer Content */
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  /* Left Section (Album Art and Song Info) */
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .footer-album-art {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .footer-song-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .footer-song-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+  }
+  
+  .footer-song-artist {
+    font-size: 0.85rem;
+    color: #b0b0b0;
+    margin: 0;
+  }
+  
+  /* Center Section (Controls and Progress Bar) */
+  .footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .footer-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .control-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .control-button:hover {
+    color: #ff4081; /* Bright pink for hover */
+  }
+  
+  .play-pause-button {
+    font-size: 2rem;
+  }
+  
+  .footer-progress-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .progress-bar {
+    flex: 1;
+    height: 4px;
+    background: #555555;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+  }
+  
+  .progress-bar::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff4081; /* Pink color for the slider thumb */
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .progress-bar::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+  
+  .progress-bar::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff4081;
+    cursor: pointer;
+  }
+  
+  .progress-bar::-moz-range-thumb:hover {
+    transform: scale(1.2);
+  }
+  
+  .footer-time {
+    font-size: 0.85rem;
+    color: #b0b0b0;
+  }
+  
+  /* Right Section (Volume Controls) */
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .volume-slider {
+    width: 100px;
+    appearance: none;
+    background: #555555;
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff4081;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+  
+  .volume-slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff4081;
+    cursor: pointer;
+  }
+  
+  .volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+  }
+  
+  .volume-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .volume-button:hover {
+    color: #ff4081;
+  }
+  
+  /* Placeholder for no song */
+  .footer-placeholder {
+    text-align: center;
+    font-size: 1rem;
+    color: #b0b0b0;
+  }
+  
