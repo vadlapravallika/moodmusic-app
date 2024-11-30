@@ -19,7 +19,7 @@ const AudioTherapy = () => {
     },
   ];
 
-  const [currentSound, setCurrentSound] = useState('');
+  const [, setCurrentSound] = useState('');
   const [audioPlayer, setAudioPlayer] = useState(null);
   const [selectedSoundscape, setSelectedSoundscape] = useState(null);
 
