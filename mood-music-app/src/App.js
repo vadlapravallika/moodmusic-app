@@ -8,14 +8,14 @@ import MoodSelector from './components/MoodSelector';
 import EmotionVisualizer from './components/EmotionVisualizer';
 import Playlist from './components/Playlist';
 import CollabPlaylist from './components/CollabPlaylist';
-import MoodEmojiGame from './components/MoodEmojiGame';
+import MoodEmojiGame from './games/MoodEmojiGame';
 import MoodQuotes from './components/MoodQuotes';
 import MoodTracker from './components/MoodTracker';
 import AudioTherapy from './components/AudioTherapy';
 import Search from './components/Search';
 import Settings from './components/Settings';
-import GameSelection from './components/GameSelection';
-import WhackAMood from './components/WhackAMood';
+import GameSelection from './games/GameSelection';
+import WhackAMood from './games/WhackAMood';
 import { MusicPlayerProvider } from './MusicPlayerContext'; // Correct import
 
 const App = () => {
