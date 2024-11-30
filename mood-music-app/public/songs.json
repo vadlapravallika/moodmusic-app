@@ -4,35 +4,49 @@
       "title": "Badtameez Dil",
       "artist": "Benny Dayal, Shefali Alvares",
       "mood": "Happy",
-      "url": "/songs/Badtameez dil.mp3",
+      "url": "/songs/Happy/Badtameez dil.mp3",
       "albumInfo": "A popular dance track from the movie Yeh Jawaani Hai Deewani.",
-      "albumArt": "/songs/Badtameez dil.jpg"
+      "albumArt": "/songs/Happy/Badtameez dil.jpg"
     },
     {
         "title": "Levitating",
         "artist": "Dua Lipa ft. DaBaby",
         "mood": "Happy",
-        "url": "/songs/Levitating.mp3",
+        "url": "/songs/Happy/Levitating.mp3",
         "albumInfo": "A hit pop track from Dua Lipa's album 'Future Nostalgia', known for its upbeat and funky vibes.",
-        "albumArt": "/songs/levitating.jpg"
+        "albumArt": "/songs/Happy/Levitating.jpg"
       },      
+      {
+        "title": "Heypillagada",
+        "artist": "Shakthikanth Karthick, Sinov Raj, Sindhuri",
+        "mood": "Happy",
+        "url": "/songs/Happy/Heypillagada.mp3",
+        "albumInfo": "A popular dance track from the movie Yeh Jawaani Hai Deewani.",
+        "albumArt": "/songs/Happy/Heypillagada.jpg"
+      },
     {
-      "id": 2,
-      "title": "Song B",
-      "artist": "Artist 2",
+      "title": "Let Her Go",
+      "artist": "Passenger",
       "mood": "Sad",
-      "url": "/songs/songB.mp3",
+      "url": "/songs/Sad/Let Her Go.mp3",
       "albumInfo": "A soulful melody that touches the heart.",
-      "albumArt": "/songs/songB.jpg"
+      "albumArt": "/songs/Sad/LetHerGo.jpg"
     },
     {
-      "id": 3,
-      "title": "Song C",
-      "artist": "Artist 3",
-      "mood": "Relaxed",
-      "url": "/songs/songC.mp3",
+      "title": "Agar Tum Saath Ho",
+      "artist": "AArijit Singh, Alka Yagnik",
+      "mood": "Sad",
+      "url": "/songs/Sad/Agar Tum Saath Ho.mp3",
       "albumInfo": "A chill instrumental for relaxing evenings.",
-      "albumArt": "/songs/songC.jpg"
+      "albumArt": "/songs/Sad/Agar Tum Saath Ho.jpeg"
+    },
+    {
+      "title": "Vellipomaakey",
+      "artist": "Dinesh Kanagaratnam, Sid Sriram",
+      "mood": "Sad",
+      "url": "/songs/Sad/Vellipomaake.mp3",
+      "albumInfo": "A chill instrumental for relaxing evenings.",
+      "albumArt": "/songs/Sad/Vellipomaake.jpeg"
     }
   ]
   
