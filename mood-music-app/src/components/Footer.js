@@ -4,7 +4,7 @@ import './Footer.css';
 import { FaPlay, FaPause, FaStepBackward, FaStepForward, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 
 const Footer = () => {
-  const { currentSong } = useContext(MusicPlayerContext);
+  const { currentSong, nextSong, prevSong } = useContext(MusicPlayerContext);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
   const [currentTime, setCurrentTime] = useState(0);
@@ -75,13 +75,13 @@ const Footer = () => {
 
           <div className="footer-center">
             <div className="footer-controls">
-              <button className="control-button">
+              <button className="control-button" onClick={prevSong}>
                 <FaStepBackward />
               </button>
               <button className="control-button play-pause-button" onClick={togglePlayPause}>
                 {isPlaying ? <FaPause /> : <FaPlay />}
               </button>
-              <button className="control-button">
+              <button className="control-button" onClick={nextSong}>
                 <FaStepForward />
               </button>
             </div>

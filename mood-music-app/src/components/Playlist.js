@@ -5,10 +5,12 @@ import { MusicPlayerContext } from '../MusicPlayerContext'; // Import the contex
 
 const Playlist = ({ songs }) => {
   const navigate = useNavigate();
-  const { setCurrentSong } = useContext(MusicPlayerContext); // Use context
+  
+  const { updatePlaylist, setCurrentSong } = useContext(MusicPlayerContext);
 
-  const playInFooter = (song) => {
-    setCurrentSong(song); // Set the current song in the global state
+  const handleUpdatePlaylist = (songs, index) => {
+    updatePlaylist(songs);
+    setCurrentSong(songs[index]);
   };
 
   return (
@@ -32,7 +34,7 @@ const Playlist = ({ songs }) => {
               <div
                 key={index}
                 className="song-card"
-                onClick={() => playInFooter(song)} // Play the song in the footer
+                onClick={() => handleUpdatePlaylist(songs, index)} // Play the song in the footer
               >
                 <img
                   src={song.albumArt || '/default-album-art.png'}
