@@ -1,119 +1,139 @@
-import React, { useState, useEffect } from 'react';
-import './MoodEmojiGame.css';
+import React, { useState, useEffect, useMemo } from "react";
+import Confetti from "react-confetti";
+import { useWindowSize } from "react-use";
+import { useNavigate } from "react-router-dom";
+
+// Define moods outside the component to avoid re-creation on every render
+const moods = [
+  { mood: "Happy", emoji: "😊" },
+  { mood: "Sad", emoji: "😢" },
+  { mood: "Relaxed", emoji: "😌" },
+  { mood: "Energetic", emoji: "⚡" },
+  { mood: "Angry", emoji: "😡" },
+];
 
 const MoodEmojiGame = () => {
   const [score, setScore] = useState(0);
   const [shuffledEmojis, setShuffledEmojis] = useState([]);
   const [shuffledMoods, setShuffledMoods] = useState([]);
-  const [error, setError] = useState('');
-  const [timeLeft, setTimeLeft] = useState(60); // Timer in seconds
+  const [timeLeft, setTimeLeft] = useState(30);
   const [gameOver, setGameOver] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false); // New state for initial game start
 
-  const moods = [
-    { mood: 'Happy', emoji: '😊' },
-    { mood: 'Sad', emoji: '😢' },
-    { mood: 'Relaxed', emoji: '😌' },
-    { mood: 'Energetic', emoji: '⚡' },
-    { mood: 'Angry', emoji: '😡' },
-  ];
+  const { width, height } = useWindowSize();
+  const navigate = useNavigate();
 
+  // Memoize the moods array if you need it inside the component
+  const memoizedMoods = useMemo(() => moods, []);
+
+  // Shuffle emojis and moods when the game starts
+  useEffect(() => {
+    setShuffledEmojis(shuffleArray(memoizedMoods));
+    setShuffledMoods(shuffleArray(memoizedMoods));
+  }, [memoizedMoods]); // Add memoizedMoods as a dependency
+
+  // Timer Logic
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    } else {
+      setGameOver(true);
+    }
+  }, [timeLeft]);
+
+  // Shuffle array utility
   const shuffleArray = (array) => [...array].sort(() => Math.random() - 0.5);
 
-  const startGame = () => {
-    setHasStarted(true);
-    setError('');
-    setScore(0);
-    setTimeLeft(30);
-    setGameOver(false);
-    setShuffledEmojis(shuffleArray(moods));
-    setShuffledMoods(shuffleArray(moods));
-  };
-
   const handleDragStart = (e, mood) => {
-    e.dataTransfer.setData('text', mood);
+    e.dataTransfer.setData("text", mood);
   };
 
   const handleDrop = (e, emoji) => {
-    const draggedMood = e.dataTransfer.getData('text');
+    const draggedMood = e.dataTransfer.getData("text");
     if (draggedMood === emoji.mood) {
       setScore(score + 1);
-      setError('');
       setShuffledEmojis(shuffledEmojis.filter((item) => item.mood !== emoji.mood));
       setShuffledMoods(shuffledMoods.filter((item) => item.mood !== emoji.mood));
-    } else {
-      setError(`Incorrect!`);
     }
   };
 
   const handleDragOver = (e) => e.preventDefault();
 
-  useEffect(() => {
-    if (shuffledEmojis.length === 0 && !gameOver && hasStarted) {
-      setGameOver(true);
-    }
-  }, [shuffledEmojis, hasStarted, gameOver]);
-
-  useEffect(() => {
-    if (timeLeft > 0 && !gameOver) {
-      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-      return () => clearTimeout(timer);
-    } else if (timeLeft === 0 && !gameOver) {
-      setGameOver(true);
-    }
-  }, [timeLeft, gameOver]);
-
   return (
-    <div className="mood-emoji-game">
-      {!hasStarted ? (
-        <div className="game-start-page">
-          <h2>Welcome to the Mood Emoji Matching Game!</h2>
-          <button onClick={startGame} className="start-button">
-            Start Game
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center text-white relative">
+      {/* Confetti Effect */}
+      {gameOver && score === moods.length && <Confetti width={width} height={height} />}
+
+      {!gameOver ? (
+        <div className="w-full max-w-5xl mx-auto space-y-6">
+          {/* Back Button */}
+          <button
+            onClick={() => navigate("/game-selection")}
+            className="absolute top-5 left-5 bg-gradient-to-r from-pink-500 to-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-transform"
+          >
+            Back
           </button>
-        </div>
-      ) : !gameOver ? (
-        <>
-          <h2 className="game-title">Mood Emoji Matching Game</h2>
-          <div className="timer">Time Left: {timeLeft} seconds</div>
-          <div className="game-board">
-            <div className="emojis">
-              <h3>Emojis</h3>
-              <ul>
-                {shuffledEmojis.map((item, index) => (
-                  <li key={index} onDrop={(e) => handleDrop(e, item)} onDragOver={handleDragOver}>
-                    {item.emoji}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="moods">
-              <h3>Moods</h3>
-              <ul>
-                {shuffledMoods.map((item, index) => (
-                  <li key={index} draggable onDragStart={(e) => handleDragStart(e, item.mood)}>
-                    {item.mood}
-                  </li>
-                ))}
-              </ul>
-            </div>
+
+          {/* Progress Bar Timer */}
+          <div className="w-full bg-gray-800 h-4 rounded-full overflow-hidden">
+            <div
+              style={{ width: `${(timeLeft / 30) * 100}%` }}
+              className="h-full bg-gradient-to-r from-green-400 to-red-500 transition-all duration-500"
+            ></div>
           </div>
-          {error && <p className="error-message">{error}</p>}
-          <p className="score">Score: {score}</p>
-        </>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-items-center">
+  {/* Emojis Section */}
+  <div className="space-y-4 w-full max-w-md">
+    <h2 className="text-2xl font-semibold mb-4 text-center">Drag the Mood to Match the Emoji</h2>
+    <div className="grid grid-cols-2 gap-4">
+      {shuffledEmojis.map((item, index) => (
+        <div
+          key={index}
+          onDrop={(e) => handleDrop(e, item)}
+          onDragOver={handleDragOver}
+          className="bg-gradient-to-br from-indigo-700 to-purple-700 p-6 rounded-lg shadow-md text-3xl text-center transform hover:scale-110 transition-transform"
+        >
+          {item.emoji}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Moods Section */}
+  <div className="space-y-4 w-full max-w-md">
+    <h2 className="text-2xl font-semibold mb-4 text-center">Drag the Mood Here</h2>
+    <div className="grid grid-cols-2 gap-4">
+      {shuffledMoods.map((item, index) => (
+        <div
+          key={index}
+          draggable
+          onDragStart={(e) => handleDragStart(e, item.mood)}
+          className="bg-gradient-to-br from-green-500 to-teal-500 p-6 rounded-lg shadow-md text-xl text-center cursor-pointer transform hover:scale-105 transition-transform"
+        >
+          {item.mood}
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+
+          {/* Score */}
+          <div className="text-center text-lg font-semibold">
+            Score: <span className="text-teal-400">{score}</span>
+          </div>
+        </div>
       ) : (
-        <div className="game-over-container">
-          {shuffledEmojis.length === 0 ? (
-            <div className="winner-page">
-              <h2>🎉 Congratulations! You Won! 🎉</h2>
-            </div>
-          ) : (
-            <div className="loser-page">
-              <h2>Game Over! Try Again!</h2>
-            </div>
-          )}
-          <button onClick={startGame} className="start-button">
-            Play Again
+        <div className="relative text-center space-y-8">
+          <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500">
+            {score === moods.length ? "🎉 You Won! 🎉" : "Game Over!"}
+          </h1>
+          <button
+            onClick={() => navigate("/game-selection")}
+            className="bg-gradient-to-r from-purple-500 to-pink-500 text-xl px-8 py-3 rounded-lg shadow-lg hover:scale-105 transition-transform"
+          >
+            Back to Game Selection
           </button>
         </div>
       )}

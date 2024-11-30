@@ -6,7 +6,7 @@ import { FaHome, FaGamepad, FaListUl, FaQuoteRight, FaHeadphones, FaHeartbeat } 
 const Sidebar = () => {
   const menuItems = [
     { path: '/', name: 'Home', icon: <FaHome /> },
-    { path: '/games', name: 'Games', icon: <FaGamepad /> },
+    { path: '/game-selection', name: 'Games', icon: <FaGamepad /> },
     { path: '/playlist', name: 'Playlist', icon: <FaListUl /> },
     { path: '/mood-quotes', name: 'Mood Quotes', icon: <FaQuoteRight /> },
     { path: '/audio-therapy', name: 'Audio Therapy', icon: <FaHeadphones /> },

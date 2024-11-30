@@ -55,7 +55,7 @@ const App = () => {
                 <Route path="/playlist" element={<Playlist songs={songs} />} />
                 <Route path="/collab-playlist" element={<CollabPlaylist />} />
 
-                <Route path="/games" element={<GameSelection />} />
+                <Route path="/game-selection" element={<GameSelection />} />
                 <Route path="/emoji-mood-game" element={<MoodEmojiGame />} />
                 <Route path="/whack-a-mood" element={<WhackAMood />} />
 
