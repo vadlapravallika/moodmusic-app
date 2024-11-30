@@ -1,68 +1,47 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './MoodSelector.css'; // Import custom CSS
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MoodSelector = ({ onMoodSelect }) => {
-  const [mood, setMood] = useState('');
+  const [mood, setMood] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  useEffect(() => {
     if (mood) {
-      onMoodSelect(mood);
-      navigate('/playlist');
-    } else {
-      alert('Please select a mood!');
+      onMoodSelect(mood); // Pass the selected mood to the parent
+      navigate("/playlist"); // Navigate to the Playlist page
     }
-  };
-
-  const moodDescriptions = {
-    Happy: 'Feeling cheerful and joyful! 😊',
-    Sad: 'A bit down today, but it’s okay. 😢',
-    Relaxed: 'Taking it easy and feeling peaceful. 😌',
-    Energetic: 'Full of energy and ready to go! ⚡',
-    Angry: 'Feeling a little fiery today! 😡',
-  };
+  }, [mood, navigate, onMoodSelect]);
 
   return (
-    <div className="mood-selector-container p-6 shadow rounded-lg">
-      <h2 className="mood-selector-title text-2xl font-bold mb-4">
-        Select Your Mood
-      </h2>
-      <select
-        value={mood}
-        onChange={(e) => setMood(e.target.value)}
-        className="mood-selector-dropdown w-full border px-4 py-2 rounded mb-4"
-      >
-        <option value="" disabled>
-          -- Choose a Mood --
-        </option>
-        <option value="Happy">Happy </option>
-        <option value="Sad">Sad </option>
-        <option value="Relaxed">Relaxed </option>
-        <option value="Energetic">Energetic </option>
-        <option value="Angry">Angry </option>
-      </select>
+    <div
+      className="min-h-screen bg-cover bg-center relative"
+      style={{
+        backgroundImage: `url('/moodselector.webp')`, // Correct the closing quote and ensure the path is correct
+      }}
+    >
+      {/* Mood Selector Card */}
+      <div className="absolute top-5 right-5 bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-4 w-1/4">
+        {/* Title */}
+        <h2 className="text-xl font-extrabold text-white mb-4 text-center">
+          Select Your <span className="text-teal-400">Mood</span>
+        </h2>
 
-      {mood && (
-        <p className="mood-description text-indigo-600 mb-4">
-          {moodDescriptions[mood]}
-        </p>
-      )}
-
-      <button
-        onClick={handleSubmit}
-        className="submit-button bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition duration-300 ease-in-out"
-      >
-        Submit
-      </button>
-
-      {mood && (
-        <div className="emoji-animation">
-          <span role="img" aria-label={mood}>
-            {moodDescriptions[mood].match(/(\p{Emoji}+)/u)[0]}
-          </span>
-        </div>
-      )}
+        {/* Dropdown */}
+        <select
+          value={mood}
+          onChange={(e) => setMood(e.target.value)}
+          className="w-full px-3 py-2 text-black rounded-lg focus:ring-2 focus:ring-teal-400"
+        >
+          <option value="" disabled>
+            -- Choose a Mood --
+          </option>
+          <option value="Happy">Happy</option>
+          <option value="Sad">Sad</option>
+          <option value="Relaxed">Relaxed</option>
+          <option value="Energetic">Energetic</option>
+          <option value="Angry">Angry</option>
+        </select>
+      </div>
     </div>
   );
 };

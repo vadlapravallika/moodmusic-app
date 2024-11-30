@@ -41,7 +41,6 @@ const App = () => {
           <Sidebar />
           <div className="flex flex-col flex-grow ml-64">
             <Navbar />
-            <main className="flex-grow container mx-auto p-4">
               <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route
@@ -72,7 +71,6 @@ const App = () => {
                 />
                 <Route path="/settings" element={<Settings />} />
               </Routes>
-            </main>
             <Footer />
           </div>
         </div>
