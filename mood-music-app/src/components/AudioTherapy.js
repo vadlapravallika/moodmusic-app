@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Define the soundscapes with their respective background images, sound, and background colors
 const soundscapes = [
@@ -29,47 +29,65 @@ const AudioTherapy = () => {
   const [audioPlayer, setAudioPlayer] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);  // Keep track of the current soundscape
   const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
 
-  const audioRef = useRef(new Audio(soundscapes[currentIndex].audio));
+  // Set up the audio player whenever the current soundscape changes
+  useEffect(() => {
+    const newAudio = new Audio(soundscapes[currentIndex].audio);
+    setAudioPlayer(newAudio);
+
+    newAudio.addEventListener('loadedmetadata', () => {
+      setDuration(newAudio.duration);
+    });
+
+    newAudio.addEventListener('timeupdate', () => {
+      setProgress(newAudio.currentTime);
+    });
+
+    // Cleanup the previous audio when the component is unmounted or currentIndex changes
+    return () => {
+      newAudio.pause();
+      setProgress(0);
+      setDuration(0);
+    };
+  }, [currentIndex]);
 
   const playSound = () => {
     if (audioPlayer) {
-      audioPlayer.pause();
+      audioPlayer.play();
+      setIsPlaying(true);
     }
-
-    const newAudio = audioRef.current;
-    newAudio.play();
-    setAudioPlayer(newAudio);
-    setIsPlaying(true);
   };
 
   const stopSound = () => {
     if (audioPlayer) {
       audioPlayer.pause();
+      setIsPlaying(false);
     }
-    setIsPlaying(false);
   };
 
-  // Play next soundscape
+  // Play next soundscape and automatically play it
   const playNext = () => {
-    const nextIndex = (currentIndex + 1) % soundscapes.length; // Loop back to first when reaching the end
+    const nextIndex = (currentIndex + 1) % soundscapes.length;
     setCurrentIndex(nextIndex);
-    audioRef.current.src = soundscapes[nextIndex].audio;
     playSound();
   };
 
-  // Rewind to the previous soundscape
+  // Rewind to the previous soundscape and automatically play it
   const playPrevious = () => {
-    const prevIndex = (currentIndex - 1 + soundscapes.length) % soundscapes.length; // Loop back to last when going before first
+    const prevIndex = (currentIndex - 1 + soundscapes.length) % soundscapes.length;
     setCurrentIndex(prevIndex);
-    audioRef.current.src = soundscapes[prevIndex].audio;
     playSound();
   };
 
-  // Handle the progress bar
+  // Handle the progress bar change
   const handleProgressChange = (event) => {
     const newTime = event.target.value;
-    audioRef.current.currentTime = newTime;
+    if (audioPlayer) {
+      audioPlayer.currentTime = newTime;
+    }
+    setProgress(newTime);
   };
 
   // Format the time
@@ -112,23 +130,13 @@ const AudioTherapy = () => {
 
           {/* Player Controls */}
           <div className="flex justify-center items-center gap-4 mb-6">
-            <button
-              onClick={playPrevious}
-              title="Rewind"
-            >
+            <button onClick={playPrevious} title="Rewind">
               ⏪
             </button>
-            <button
-              onClick={isPlaying ? stopSound : playSound}
-              
-              title={isPlaying ? 'Pause' : 'Play'}
-            >
+            <button onClick={isPlaying ? stopSound : playSound} title={isPlaying ? 'Pause' : 'Play'}>
               {isPlaying ? '⏸️' : '▶️'}
             </button>
-            <button
-              onClick={playNext}
-              title="Next"
-            >
+            <button onClick={playNext} title="Next">
               ⏩
             </button>
           </div>
@@ -137,14 +145,14 @@ const AudioTherapy = () => {
           <input
             type="range"
             min="0"
-            max={audioRef.current.duration || 0}
-            value={audioRef.current.currentTime || 0}
+            max={duration || 0}
+            value={progress || 0}
             onChange={handleProgressChange}
             className="w-full mb-4"
           />
           <div className="flex justify-between text-xs text-white">
-            <span>{formatTime(audioRef.current.currentTime)}</span>
-            <span>{formatTime(audioRef.current.duration)}</span>
+            <span>{formatTime(progress)}</span>
+            <span>{formatTime(duration)}</span>
           </div>
         </div>
       </div>
