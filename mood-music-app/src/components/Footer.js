@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { MusicPlayerContext } from '../MusicPlayerContext';
+import { useLocation } from 'react-router-dom'; // To detect the current page
 import './Footer.css';
 import { FaPlay, FaPause, FaStepBackward, FaStepForward, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 
@@ -10,6 +11,10 @@ const Footer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef(null);
+
+  // Detect the current route (whether we're on AudioTherapy page)
+  const location = useLocation();
+  const isAudioTherapy = location.pathname.includes('audio-therapy'); // Checks if we are on the Audio Therapy page
 
   useEffect(() => {
     if (currentSong && audioRef.current) {
@@ -56,6 +61,9 @@ const Footer = () => {
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
+
+  // Don't display footer content on AudioTherapy page
+  if (isAudioTherapy) return null; // If it's AudioTherapy page, we return null and hide the footer
 
   return (
     <footer className="footer-container">
