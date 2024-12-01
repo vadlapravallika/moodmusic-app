@@ -1,23 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Equalizer from './Equalizer'; // Import the Equalizer component
 
 const Settings = () => {
-  const [theme, setTheme] = useState('Light');
-
   return (
-    <div className="p-6 bg-white shadow rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">Settings</h2>
-      <div className="mb-4">
-        <label className="block text-lg font-bold mb-2">Theme</label>
-        <select
-          value={theme}
-          onChange={(e) => setTheme(e.target.value)}
-          className="border px-4 py-2 rounded"
-        >
-          <option>Light</option>
-          <option>Dark</option>
-        </select>
-      </div>
-      <p>Current Theme: {theme}</p>
+    <div className="p-6 bg-gray-900 text-white min-h-screen">
+      <h1 className="text-3xl font-bold mb-6">Settings</h1>
+      
+      {/* Equalizer Component */}
+      <Equalizer />
     </div>
   );
 };
