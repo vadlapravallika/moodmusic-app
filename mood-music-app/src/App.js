@@ -18,7 +18,6 @@ import GameSelection from './games/GameSelection';
 import WhackAMood from './games/WhackAMood';
 import { MusicPlayerProvider } from './MusicPlayerContext'; // Correct import
 
-
 const App = () => {
   const [currentMood, setCurrentMood] = React.useState('');
   const [songs, setSongs] = React.useState([]);
@@ -40,7 +39,7 @@ const App = () => {
       <Router>
         <div className="flex">
           <Sidebar />
-          <div className="flex flex-col flex-grow ml-64">
+          <div className="flex flex-col flex-grow lg:ml-64">
             <Navbar />
               <Routes>
                 <Route path="/" element={<LandingPage />} />
