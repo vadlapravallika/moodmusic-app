@@ -1,16 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
-import { FaHome, FaGamepad, FaListUl, FaQuoteRight, FaHeadphones, FaHeartbeat } from 'react-icons/fa';
+import { FaGamepad, FaListUl, FaQuoteRight, FaHeadphones, FaHeartbeat } from 'react-icons/fa';
+import { useLanguage } from './LanguageContext'; // Import the language context hook
 
 const Sidebar = () => {
+  const { getTranslation } = useLanguage(); // Access the translation function
+  
   const menuItems = [
-    { path: '/', name: 'Home', icon: <FaHome /> },
-    { path: '/game-selection', name: 'Games', icon: <FaGamepad /> },
-    { path: '/playlist', name: 'Playlist', icon: <FaListUl /> },
-    { path: '/mood-quotes', name: 'Mood Quotes', icon: <FaQuoteRight /> },
-    { path: '/audio-therapy', name: 'Audio Therapy', icon: <FaHeadphones /> },
-    { path: '/mood-tracker', name: 'Mood Tracker', icon: <FaHeartbeat /> },
+    { path: '/game-selection', name: 'games', icon: <FaGamepad /> },
+    { path: '/playlist', name: 'playlist', icon: <FaListUl /> },
+    { path: '/mood-quotes', name: 'moodQuotes', icon: <FaQuoteRight /> },
+    { path: '/audio-therapy', name: 'audioTherapy', icon: <FaHeadphones /> },
+    { path: '/mood-tracker', name: 'moodTracker', icon: <FaHeartbeat /> },
   ];
 
   return (
@@ -19,7 +21,7 @@ const Sidebar = () => {
       <div className="logo-container">
         <img src="/logo.png" alt="App Logo" className="logo" />
       </div>
-      <h2 className="sidebar-title">Mood Music</h2>
+      <h2 className="sidebar-title">{getTranslation('welcome')}</h2> {/* Use translation for title */}
       <nav className="sidebar-menu">
         <ul>
           {menuItems.map((item) => (
@@ -31,7 +33,7 @@ const Sidebar = () => {
                 }
               >
                 <span className="icon">{item.icon}</span>
-                <span className="name">{item.name}</span>
+                <span className="name">{getTranslation(item.name)}</span> {/* Use translation for each menu item */}
               </NavLink>
             </li>
           ))}

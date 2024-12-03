@@ -137,6 +137,22 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px 15px;
   }
 }
+/* Default styles */
+html {
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Light Theme */
+html.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark Theme */
+html.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
 
 /* Full screen layout for large screens */
 @media (min-width: 1024px) {
