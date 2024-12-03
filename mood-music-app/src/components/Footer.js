@@ -127,7 +127,7 @@ const Footer = () => {
           ></audio>
         </div>
       ) : (
-        <p className="footer-placeholder">© 2024 MoodSelector. All rights reserved</p>
+        <p className="footer-placeholder">Select a song to play</p>
       )}
     </footer>
   );
