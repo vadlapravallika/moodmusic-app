@@ -39,7 +39,7 @@ const MoodSelector = ({ onMoodSelect }) => {
           <option value="Sad">Sad</option>
           <option value="Relaxed">Relaxed</option>
           <option value="Energetic">Energetic</option>
-          <option value="Angry">Motivational</option>
+          <option value="Motivational">Motivational</option>
         </select>
       </div>
     </div>
