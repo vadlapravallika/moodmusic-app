@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLanguage } from "../LanguageContext"; // Import the language context
 
 const moodEmojis = ["😊", "😢", "😡", "😍", "😌", "⚡"];
 
@@ -10,8 +9,6 @@ const WhackAMood = () => {
   const [timeLeft, setTimeLeft] = useState(30); // Timer duration
   const [gameActive, setGameActive] = useState(false);
   const navigate = useNavigate(); // For navigation
-
-  const { getTranslation } = useLanguage(); // Access the translation function
 
   // Function to shuffle moods in random slots
   useEffect(() => {
@@ -63,11 +60,11 @@ const WhackAMood = () => {
         onClick={() => navigate("/game-selection")}
         className="absolute top-5 left-5 bg-gradient-to-r from-green-400 to-teal-500 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-transform"
       >
-        {getTranslation("home")}
+        Back to Game Selection
       </button>
 
       {/* Game Title */}
-      <h1 className="text-4xl font-extrabold mb-6">{getTranslation("games")}</h1>
+      <h1 className="text-4xl font-extrabold mb-6">Whack-a-Mood</h1>
 
       {/* Start Button */}
       {!gameActive && timeLeft > 0 && (
@@ -75,15 +72,15 @@ const WhackAMood = () => {
           onClick={startGame}
           className="bg-gradient-to-r from-green-400 to-teal-500 text-lg font-bold px-6 py-3 rounded-lg shadow-lg hover:scale-105 transition-transform"
         >
-          {getTranslation("play")}
+          Start Game
         </button>
       )}
 
       {/* Score and Timer */}
       {gameActive && (
         <div className="mt-6 w-full max-w-md flex justify-between items-center text-lg font-semibold">
-          <div>{getTranslation("score")}: {score}</div>
-          <div>{getTranslation("timeLeft")}: {timeLeft}s</div>
+          <div>Score: {score}</div>
+          <div>Time Left: {timeLeft}s</div>
         </div>
       )}
 
@@ -113,15 +110,15 @@ const WhackAMood = () => {
       {/* Game Over Screen */}
       {!gameActive && timeLeft === 0 && (
         <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center text-center text-white space-y-6">
-          <h2 className="text-5xl font-bold">{getTranslation("gameOver")}</h2>
-          <p className="text-2xl">{getTranslation("finalScore")}: {score}</p>
+          <h2 className="text-5xl font-bold">Game Over!</h2>
+          <p className="text-2xl">Your final score: {score}</p>
 
           {/* Play Again Button */}
           <button
             onClick={startGame}
             className="bg-gradient-to-r from-purple-500 to-pink-500 text-lg font-bold px-8 py-3 rounded-lg shadow-lg hover:scale-105 transition-transform"
           >
-            {getTranslation("playAgain")}
+            Play Again
           </button>
 
           {/* Home Button */}
@@ -129,7 +126,7 @@ const WhackAMood = () => {
             onClick={() => navigate("/game-selection")}
             className="bg-gradient-to-r from-green-400 to-teal-500 text-lg font-bold px-8 py-3 rounded-lg shadow-lg hover:scale-105 transition-transform"
           >
-            {getTranslation("home")}
+            Home
           </button>
         </div>
       )}

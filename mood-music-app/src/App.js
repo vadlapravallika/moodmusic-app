@@ -17,10 +17,6 @@ import Settings from './components/Settings';
 import GameSelection from './games/GameSelection';
 import WhackAMood from './games/WhackAMood';
 import { MusicPlayerProvider } from './MusicPlayerContext'; // Correct import
-import { LanguageProvider } from './LanguageContext'; // Import the Language Provider
-
-// You can import your LanguageSwitcher component here
-import LanguageSwitcher from './components/LanguageSwitcher'; // Import the language switcher if it's a separate component
 
 const App = () => {
   const [currentMood, setCurrentMood] = React.useState('');
@@ -39,40 +35,47 @@ const App = () => {
   };
 
   return (
-    <LanguageProvider> {/* Wrap the app with the language provider */}
-      <MusicPlayerProvider> {/* Wrap the app with the music player provider */}
-        <Router>
-          <div className="flex">
-            <Sidebar />
-            <div className="flex flex-col flex-grow lg:ml-64">
-              <Navbar />
-              {/* Add the Language Switcher here */}
-              <div className="language-switcher-container">
-                <LanguageSwitcher />
-              </div>
-
+    <MusicPlayerProvider> {/* Wrap the app with the provider */}
+      <Router>
+        <div className="flex">
+          <Sidebar />
+          <div className="flex flex-col flex-grow lg:ml-64">
+            <Navbar />
               <Routes>
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/mood-selector" element={<MoodSelector onMoodSelect={handleMoodSelect} />} />
-                <Route path="/emotion-visualizer" element={<EmotionVisualizer mood={currentMood} />} />
+                <Route
+                  path="/mood-selector"
+                  element={<MoodSelector onMoodSelect={handleMoodSelect} />}
+                />
+                <Route
+                  path="/emotion-visualizer"
+                  element={<EmotionVisualizer mood={currentMood} />}
+                />
                 <Route path="/playlist" element={<Playlist songs={songs} />} />
                 <Route path="/collab-playlist" element={<CollabPlaylist />} />
+
                 <Route path="/game-selection" element={<GameSelection />} />
                 <Route path="/emoji-mood-game" element={<MoodEmojiGame />} />
                 <Route path="/whack-a-mood" element={<WhackAMood />} />
+
                 <Route path="/mood-quotes" element={<MoodQuotes />} />
                 <Route path="/mood-tracker" element={<MoodTracker />} />
                 <Route path="/audio-therapy" element={<AudioTherapy />} />
-                <Route path="/search" element={<Search onSearch={(query) => alert(`Searching for ${query}`)} />} />
+                <Route
+                  path="/search"
+                  element={
+                    <Search
+                      onSearch={(query) => alert(`Searching for ${query}`)}
+                    />
+                  }
+                />
                 <Route path="/settings" element={<Settings />} />
               </Routes>
-
-              <Footer />
-            </div>
+            <Footer />
           </div>
-        </Router>
-      </MusicPlayerProvider>
-    </LanguageProvider>
+        </div>
+      </Router>
+    </MusicPlayerProvider>
   );
 };
 

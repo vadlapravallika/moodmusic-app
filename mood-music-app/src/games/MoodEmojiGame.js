@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from "react";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
 import { useNavigate } from "react-router-dom";
-import { useLanguage } from "../LanguageContext"; // Import the language context
 
 // Define moods outside the component to avoid re-creation on every render
 const moods = [
@@ -22,7 +21,6 @@ const MoodEmojiGame = () => {
 
   const { width, height } = useWindowSize();
   const navigate = useNavigate();
-  const { getTranslation } = useLanguage(); // Access the translation function
 
   const memoizedMoods = useMemo(() => moods, []);
 
@@ -78,7 +76,7 @@ const MoodEmojiGame = () => {
             onClick={() => navigate("/game-selection")}
             className="absolute top-5 left-5 bg-gradient-to-r from-pink-500 to-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-transform"
           >
-            {getTranslation("home")}
+            Back
           </button>
 
           {/* Progress Bar and Timer */}
@@ -92,7 +90,7 @@ const MoodEmojiGame = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-items-center">
             {/* Emojis Section */}
             <div className="space-y-4 w-full max-w-md">
-              <h2 className="text-2xl font-semibold mb-4 text-center">{getTranslation("dragToMatchEmoji")}</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-center">Drag the Mood to Match the Emoji</h2>
               <div className="grid grid-cols-2 gap-4">
                 {shuffledEmojis.map((item, index) => (
                   <div
@@ -109,7 +107,7 @@ const MoodEmojiGame = () => {
 
             {/* Moods Section */}
             <div className="space-y-4 w-full max-w-md">
-              <h2 className="text-2xl font-semibold mb-4 text-center">{getTranslation("dragToMatchMood")}</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-center">Drag the Mood Here</h2>
               <div className="grid grid-cols-2 gap-4">
                 {shuffledMoods.map((item, index) => (
                   <div
@@ -127,19 +125,19 @@ const MoodEmojiGame = () => {
 
           {/* Score */}
           <div className="text-center text-lg font-semibold">
-            {getTranslation("score")}: <span className="text-teal-400">{score}</span>
+            Score: <span className="text-teal-400">{score}</span>
           </div>
         </div>
       ) : (
         <div className="relative text-center space-y-8">
           <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500">
-            {score === moods.length ? getTranslation("youWon") : getTranslation("gameOver")}
+            {score === moods.length ? "🎉 You Won! 🎉" : "Game Over!"}
           </h1>
           <button
             onClick={handlePlayAgain}
             className="bg-gradient-to-r from-purple-500 to-pink-500 text-xl px-8 py-3 rounded-lg shadow-lg hover:scale-105 transition-transform"
           >
-            {getTranslation("playAgain")}
+            Play Again
           </button>
 
           {/* Home Button */}
@@ -147,7 +145,7 @@ const MoodEmojiGame = () => {
             onClick={() => navigate("/game-selection")}
             className="bg-gradient-to-r from-green-400 to-teal-500 text-lg font-bold px-8 py-3 rounded-lg shadow-lg hover:scale-105 transition-transform"
           >
-            {getTranslation("home")}
+            Home
           </button>
         </div>
       )}

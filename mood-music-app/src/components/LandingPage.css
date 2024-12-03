@@ -78,22 +78,6 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     border-radius: 16px;
   }
-  .language-switcher {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 5px;
-    border-radius: 5px;
-  }
-  
-  .language-dropdown {
-    font-size: 1rem;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #f7fafc;
-    border: 1px solid #e2e8f0;
-  }
   
   
   /* Float Animation for Image */

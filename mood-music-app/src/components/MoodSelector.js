@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLanguage } from "../LanguageContext"; // Import Language Context
 
 const MoodSelector = ({ onMoodSelect }) => {
   const [mood, setMood] = useState("");
   const navigate = useNavigate();
-  const { getTranslation } = useLanguage(); // Access the translation function
 
   useEffect(() => {
     if (mood) {
@@ -25,7 +23,7 @@ const MoodSelector = ({ onMoodSelect }) => {
       <div className="absolute top-5 right-5 bg-gray-800 bg-opacity-90 rounded-lg shadow-lg p-4 w-1/4">
         {/* Title */}
         <h2 className="text-xl font-extrabold text-white mb-4 text-center">
-          {getTranslation("selectYourMood")}
+          Select Your <span className="text-teal-400">Mood</span>
         </h2>
 
         {/* Dropdown */}
@@ -35,13 +33,13 @@ const MoodSelector = ({ onMoodSelect }) => {
           className="w-full px-3 py-2 text-black rounded-lg focus:ring-2 focus:ring-teal-400"
         >
           <option value="" disabled>
-            {getTranslation("chooseMood")}
+            -- Choose a Mood --
           </option>
-          <option value="Happy">{getTranslation("happy")}</option>
-          <option value="Sad">{getTranslation("sad")}</option>
-          <option value="Relaxed">{getTranslation("relaxed")}</option>
-          <option value="Energetic">{getTranslation("energetic")}</option>
-          <option value="Angry">{getTranslation("angry")}</option>
+          <option value="Happy">Happy</option>
+          <option value="Sad">Sad</option>
+          <option value="Relaxed">Relaxed</option>
+          <option value="Energetic">Energetic</option>
+          <option value="Angry">Angry</option>
         </select>
       </div>
     </div>
