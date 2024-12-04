@@ -140,7 +140,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Created by Pravallika**  
 For inquiries, contact at [your-email@example.com](mailto:your-email@example.com).
 
----
-
-This README gives an in-depth explanation of your **Mood Music** app, including its features, technologies, installation steps, and more. It's structured to be informative for users, contributors, and those who want to understand the tech stack and functionality of your project.
 
