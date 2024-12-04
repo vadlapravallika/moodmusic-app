@@ -138,6 +138,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Created by Pravallika**  
-For inquiries, contact at [your-email@example.com](mailto:your-email@example.com).
+For inquiries, contact at (pvadla@hawk.iit.edu)
 
 
