@@ -96,6 +96,8 @@ It also integrates features like **mood tracking**, **audio therapy** for relaxa
    ```
    Visit [http://localhost:3000](http://localhost:3000) in your browser to access the app.
 
+   Live Page(https://moodmusic-app-valli-git-main-pravallika-vadlas-projects.vercel.app/)
+
 ---
 
 ### How to Use
@@ -121,7 +123,27 @@ It also integrates features like **mood tracking**, **audio therapy** for relaxa
 
 ### Screenshots
 
-![Mood Music Screenshot](./screenshots/screenshot.png)
+Landing/Home Page
+![image](https://github.com/user-attachments/assets/5963df81-ef77-408b-94d2-3406bcb8a50c)
+Mood Selector 
+![image](https://github.com/user-attachments/assets/714d1994-7c26-43a0-a6c7-57abe6729403)
+PlaylistPage
+![image](https://github.com/user-attachments/assets/fe5d3acf-fbde-4cc1-b8b9-d344bcc5c1c5)
+![image](https://github.com/user-attachments/assets/2f9917aa-d747-4b27-82b8-e8d4b443c441)
+Games
+![image](https://github.com/user-attachments/assets/b0ac6984-676f-4c01-97be-ac6e986260b0)
+![image](https://github.com/user-attachments/assets/aac2cffe-e1db-4285-b0b5-1110399f420b)
+![image](https://github.com/user-attachments/assets/da8025c2-7506-4e61-956b-bf81a15736c5)
+Quote
+![image](https://github.com/user-attachments/assets/cbe62150-c3f6-4486-ad62-7746978627cf)
+Mood Tracker
+![image](https://github.com/user-attachments/assets/266566b2-fe2d-4b8a-a0be-3a52fa10895c)
+Audio Therapy
+![image](https://github.com/user-attachments/assets/d77c2ad4-2cf0-42a9-b618-9e5ebc64e81d)
+Settings dark
+![image](https://github.com/user-attachments/assets/ae5771e3-98c1-46cf-8e7f-d3facfbba372)
+About
+![image](https://github.com/user-attachments/assets/b24a6dc0-4a1a-4a83-b722-f6c31f75b4b5)
 
 ---
 
@@ -129,11 +151,6 @@ It also integrates features like **mood tracking**, **audio therapy** for relaxa
 
 Feel free to fork the repository, create a new branch, and submit a pull request. Contributions are always welcome, whether it’s for bug fixes, new features, or improving documentation.
 
----
-
-### License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
