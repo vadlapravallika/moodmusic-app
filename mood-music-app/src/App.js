@@ -12,7 +12,7 @@ import MoodEmojiGame from './games/MoodEmojiGame';
 import MoodQuotes from './components/MoodQuotes';
 import MoodTracker from './components/MoodTracker';
 import AudioTherapy from './components/AudioTherapy';
-import Search from './components/Search';
+import About from './components/About';
 import Settings from './components/Settings';
 import GameSelection from './games/GameSelection';
 import WhackAMood from './games/WhackAMood';
@@ -61,14 +61,7 @@ const App = () => {
                 <Route path="/mood-quotes" element={<MoodQuotes />} />
                 <Route path="/mood-tracker" element={<MoodTracker />} />
                 <Route path="/audio-therapy" element={<AudioTherapy />} />
-                <Route
-                  path="/search"
-                  element={
-                    <Search
-                      onSearch={(query) => alert(`Searching for ${query}`)}
-                    />
-                  }
-                />
+                <Route path="/About" element={<About />}/>
                 <Route path="/settings" element={<Settings />} />
               </Routes>
             <Footer />
