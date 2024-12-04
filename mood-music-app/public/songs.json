@@ -1,43 +1,44 @@
 [
+  
     {
       "id": 1,
       "title": "Badtameez Dil",
       "artist": "Benny Dayal, Shefali Alvares",
       "mood": "Happy",
       "url": "/songs/Happy/Badtameez dil.mp3",
-      "albumInfo": "A popular dance track from the movie Yeh Jawaani Hai Deewani.",
+      "albumInfo": "A vibrant, energetic track from the movie Yeh Jawaani Hai Deewani that has become an anthem for fun and carefree moments.",
       "albumArt": "/songs/Happy/Badtameez dil.jpg"
     },
     {
-        "title": "Levitating",
-        "artist": "Dua Lipa ft. DaBaby",
-        "mood": "Happy",
-        "url": "/songs/Happy/Levitating.mp3",
-        "albumInfo": "A hit pop track from Dua Lipa's album 'Future Nostalgia', known for its upbeat and funky vibes.",
-        "albumArt": "/songs/Happy/levitating.jpg"
-      },      
-      {
-        "title": "Heypillagada",
-        "artist": "Shakthikanth Karthick, Sinov Raj, Sindhuri",
-        "mood": "Happy",
-        "url": "/songs/Happy/Heypillagada.mp3",
-        "albumInfo": "A popular dance track from the movie Yeh Jawaani Hai Deewani.",
-        "albumArt": "/songs/Happy/Heypillagada.jpg"
-      },
+      "title": "Levitating",
+      "artist": "Dua Lipa ft. DaBaby",
+      "mood": "Happy",
+      "url": "/songs/Happy/Levitating.mp3",
+      "albumInfo": "A hit pop track from Dua Lipa's album 'Future Nostalgia', known for its upbeat and funky vibes, perfect for uplifting any mood.",
+      "albumArt": "/songs/Happy/levitating.jpg"
+    },
+    {
+      "title": "Heypillagada",
+      "artist": "Shakthikanth Karthick, Sinov Raj, Sindhuri",
+      "mood": "Happy",
+      "url": "/songs/Happy/Heypillagada.mp3",
+      "albumInfo": "A catchy and peppy number from the movie 'Yeh Jawaani Hai Deewani', known for its lively beats and energetic vibe.",
+      "albumArt": "/songs/Happy/Heypillagada.jpg"
+    },
     {
       "title": "Let Her Go",
       "artist": "Passenger",
       "mood": "Sad",
       "url": "/songs/Sad/Let Her Go.mp3",
-      "albumInfo": "A soulful melody that touches the heart.",
+      "albumInfo": "A soulful ballad with deep emotional resonance, 'Let Her Go' is a heart-wrenching song about love, loss, and regret.",
       "albumArt": "/songs/Sad/LetHerGo.jpg"
     },
     {
       "title": "Agar Tum Saath Ho",
-      "artist": "AArijit Singh, Alka Yagnik",
+      "artist": "Aarijit Singh, Alka Yagnik",
       "mood": "Sad",
       "url": "/songs/Sad/Agar Tum Saath Ho.mp3",
-      "albumInfo": "A chill instrumental for relaxing evenings.",
+      "albumInfo": "A poignant and beautiful love song from the movie 'Tamasha', capturing the emotions of longing and the pain of separation.",
       "albumArt": "/songs/Sad/Agar Tum Saath Ho.jpeg"
     },
     {
@@ -45,8 +46,80 @@
       "artist": "Dinesh Kanagaratnam, Sid Sriram",
       "mood": "Sad",
       "url": "/songs/Sad/Vellipomaake.mp3",
-      "albumInfo": "A chill instrumental for relaxing evenings.",
+      "albumInfo": "A beautiful romantic melody from the movie 'Sankarabharanam', where the soothing tones of the music are perfect for reflective moments.",
       "albumArt": "/songs/Sad/Vellipomaake.jpeg"
-    }
+    },  
+    {
+      "title": "Tum Hi Ho",
+      "artist": "Arijit Singh",
+      "mood": "Relaxed",
+      "url": "/songs/Relaxed/TumHiHo.mp3",
+      "albumInfo": "A soulful and calming love song from the movie 'Aashiqui 2'.",
+      "albumArt": "/songs/Relaxed/TumHiHo.jpeg"
+    },
+    {
+      "title": "Yentha Sakkagunnaave",
+      "artist": "Sid Sriram",
+      "mood": "Relaxed",
+      "url": "/songs/Relaxed/YenthaSakkagunnaave.mp3",
+      "albumInfo": "A mellow track from 'Rangasthalam' that calms the mind with soothing music.",
+      "albumArt": "/songs/Relaxed/YenthaSakkagunnaave.jpg"
+    },
+    {
+      "title": "Samajavaragamana",
+      "artist": "S. P. Balasubrahmanyam, Armaan Malik",
+      "mood": "Relaxed",
+      "url": "/songs/Relaxed/Samajavaragamana.mp3",
+      "albumInfo": "A serene melody from the movie 'Ala Vaikunthapurramuloo' that gives a peaceful vibe.",
+      "albumArt": "/songs/Relaxed/Samajavaragamana.jpg"
+    },
+      {
+        "title": "Big Dawg",
+        "artist": "Dino James",
+        "mood": "Energetic",
+        "url": "/songs/Energetic/BigDawg.mp3",
+        "albumInfo": "An energetic and hard-hitting song that pumps you up with its powerful beats.",
+        "albumArt": "/songs/Energetic/BigDawg.jpeg"
+      },
+      {
+        "title": "Nashe Si Chadh Gayi",
+        "artist": "Arijit Singh",
+        "mood": "Energetic",
+        "url": "/songs/Energetic/NasheSiChadhGayi.mp3",
+        "albumInfo": "A lively and peppy song from the movie 'Befikre'.",
+        "albumArt": "/songs/Energetic/NasheSiChadhGayi.jpeg"
+      },
+      {
+        "title": "APT.",
+        "artist": "ROSÉ, Bruno Mars",
+        "mood": "Energetic",
+        "url": "/songs/Energetic/APT.mp3",
+        "albumInfo": "A pop-punk anthem from ROSÉ's first studio album 'rosie,' featuring Bruno Mars. The song blends English and Korean lyrics, inviting listeners to a lively party at an apartment.",
+        "albumArt": "/songs/Energetic/APT.jpg"
+      },
+      {
+        "title": "We Will Rock You",
+        "artist": "Queen",
+        "mood": "Motivational",
+        "url": "/songs/Motivational/We Will Rock You.mp3",
+        "albumInfo": "An anthem of motivation and power by the legendary Queen.",
+        "albumArt": "/songs/Motivational/We Will Rock You.jpg"
+      },
+      {
+        "title": "Ashapasam",
+        "artist": "Kunal Ganjawala",
+        "mood": "Motivational",
+        "url": "/songs/Motivational/Ashapasam.mp3",
+        "albumInfo": "A motivational song from the Telugu film 'C/O Kancherlapalem', inspiring courage and hope.",
+        "albumArt": "/songs/Motivational/Ashapasam.jpeg"
+      },
+      {
+        "title": "Who Says",
+        "artist": "Selena Gomez & The Scene",
+        "mood": "Motivational",
+        "url": "/songs/Motivational/whosays.mp3",
+        "albumInfo": "An empowering anthem of self-acceptance and confidence.",
+        "albumArt": "/songs/Motivational/whosays.jpg"
+      }
   ]
   

@@ -43,16 +43,14 @@ const Playlist = ({ songs }) => {
                 <img
                   src={song.albumArt || "/default-album-art.png"}
                   alt={`${song.title} Album Art`}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-64 object-cover"
                 />
 
                 {/* Song Info */}
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold truncate">{song.title}</h3>
-                  <p className="text-sm text-gray-400 truncate">by {song.artist}</p>
-                  <p className="text-sm text-gray-500 truncate">
-                    {song.albumInfo || "No album info available"}
-                  </p>
+                <div className="p-4 space-y-2">
+                  <h3 className="text-lg font-semibold">{song.title}</h3>
+                  <p className="text-sm text-gray-400">by {song.artist}</p>
+                  <p className="text-sm text-gray-500">{song.albumInfo || "No album info available"}</p>
                 </div>
               </div>
             ))}

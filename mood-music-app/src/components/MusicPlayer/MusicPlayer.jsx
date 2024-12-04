@@ -27,8 +27,9 @@ const MusicPlayer = ({ song }) => {
   };
 
   const toggleMute = () => {
-    setIsMuted(!isMuted);
-    audioRef.current.muted = !isMuted;
+    const newMuteStatus = !isMuted;
+    setIsMuted(newMuteStatus);
+    audioRef.current.muted = newMuteStatus;
   };
 
   const handleSeek = (e) => {
