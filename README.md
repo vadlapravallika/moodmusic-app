@@ -59,7 +59,7 @@ It also integrates features like **mood tracking**, **audio therapy** for relaxa
    - Used for visualizing mood history and frequency over time in the **Mood Tracker** feature.
 
 - **React Context API**:
-   - For managing global states such as **selected mood**, **playlist**, and **user language preference** across the app.
+   - For managing global states such as **selected mood** and **playlist** across the app.
 
 - **React Icons**:
    - Used for adding interactive icons like volume control, play/pause buttons, and other UI elements.
@@ -144,9 +144,6 @@ Settings dark
 ![image](https://github.com/user-attachments/assets/ae5771e3-98c1-46cf-8e7f-d3facfbba372)
 About
 ![image](https://github.com/user-attachments/assets/b24a6dc0-4a1a-4a83-b722-f6c31f75b4b5)
-
----
-Here is how you can add the **Lessons Learned** and **Future Scope** sections to your **README** file:
 
 ---
 
