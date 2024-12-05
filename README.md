@@ -1,4 +1,4 @@
-## Mood Music
+## Mood Music App
 
 ### Overview
 
@@ -76,12 +76,12 @@ It also integrates features like **mood tracking**, **audio therapy** for relaxa
 
 1. **Clone the Repository**:
    ```bash
-   (git clone https://github.com/vadlapravallika/moodmusic-app.git)
+   git clone https://github.com/vadlapravallika/moodmusic-app.git
    ```
 
 2. **Navigate to the Project Folder**:
    ```bash
-   cd mood-music
+   cd mood-music-app
    ```
 
 3. **Install Dependencies**:
