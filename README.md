@@ -76,7 +76,7 @@ It also integrates features like **mood tracking**, **audio therapy** for relaxa
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/mood-music.git
+   [git clone https://github.com/your-username/mood-music.git](https://github.com/vadlapravallika/moodmusic-app.git)
    ```
 
 2. **Navigate to the Project Folder**:
